@@ -1,0 +1,27 @@
+:root {
+  --bg: #07090b;
+  --bg-elevated: #0b0e11;
+  --bg-soft: #111519;
+  --ink: #f4f6f7;
+  --ink-soft: #c9cfd4;
+  --muted: #7e8992;
+  --hairline: rgba(237, 245, 249, 0.12);
+  --hairline-strong: rgba(237, 245, 249, 0.23);
+  --cyan: #9ae7ff;
+  --cyan-hot: #58d6ff;
+  --amber: #d8a875;
+  --signal: #ff5d55;
+  --violet: #a698ff;
+
+  --font-display: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --container: 90rem;
+  --gutter: clamp(1.25rem, 3vw, 3.5rem);
+  --section-space: clamp(6rem, 11vw, 11rem);
+  --radius-small: 0.3rem;
+  --radius-medium: 0.75rem;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
