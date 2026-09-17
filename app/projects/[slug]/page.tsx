@@ -5,13 +5,13 @@ import { CityField } from "@/components/city/CityField";
 import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { SiteHeader } from "@/components/shell/SiteHeader";
 import {
-  featuredProjectOrder,
+  projectPageOrder,
   getProjectBySlug,
   projects,
 } from "@/data/portfolio";
 
 export function generateStaticParams() {
-  return featuredProjectOrder.map((key) => ({ slug: projects[key].slug }));
+  return projectPageOrder.map((key) => ({ slug: projects[key].slug }));
 }
 
 export async function generateMetadata({
@@ -46,10 +46,10 @@ export default async function ProjectPage({
     return null;
   }
 
-  const currentIndex = featuredProjectOrder.findIndex(
+  const currentIndex = projectPageOrder.findIndex(
     (key) => projects[key].slug === project.slug,
   );
-  const nextKey = featuredProjectOrder[(currentIndex + 1) % featuredProjectOrder.length];
+  const nextKey = projectPageOrder[(currentIndex + 1) % projectPageOrder.length];
   const nextProject = projects[nextKey];
 
   return (
@@ -81,7 +81,7 @@ export default async function ProjectPage({
           {(project.links.demo || project.links.repository) && (
             <div className="project-external-links">
               {project.links.demo && (
-                <a href={project.links.demo} target="_blank" rel="noreferrer">Deployed app / sign-in ↗</a>
+                <a href={project.links.demo} target="_blank" rel="noreferrer">Launch project ↗</a>
               )}
               {project.links.repository && (
                 <a href={project.links.repository} target="_blank" rel="noreferrer">Repository ↗</a>
@@ -175,7 +175,7 @@ export default async function ProjectPage({
         <nav className="project-page-footer" aria-label="Project navigation">
           <Link href="/#selected-systems">Back to selected systems</Link>
           <Link href={`/projects/${nextProject.slug}`}>
-            Next system / {nextProject.name} →
+            Next project / {nextProject.name} →
           </Link>
         </nav>
       </article>

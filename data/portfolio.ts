@@ -91,37 +91,76 @@ export const projects = {
     slug: "financial-analysis-platform",
     eyebrow: "03 / Financial intelligence",
     sector: "Market + filing analysis",
-    name: "Financial Analysis Platform",
-    status: "Active build",
+    name: "FINENGINE",
+    status: "Deployed app",
     year: "2026",
     role: "Application engineering / analytics",
-    description: "A Python financial application connecting live market data with company research and filing analysis.",
+    description: "A full-stack company-intelligence platform connecting live market telemetry, SEC fundamentals, peer benchmarking, filing evidence, and transparent valuation scenarios.",
     problem:
       "Company research is usually split across market-data sites, spreadsheets, valuation work, watchlists, and SEC filings. That makes even a straightforward company review more fragmented than it should be.",
     system:
-      "A modular Python application that pulls live financial data and is being extended into a unified research workflow for company comparison, valuation, watchlists, and SEC / 10-K analysis.",
-    architecture: ["Python", "Twelve Data", "SEC EDGAR", "Validation", "Financial analytics"],
+      "A React/TypeScript and FastAPI application that combines Twelve Data market telemetry with SEC EDGAR/XBRL fundamentals, peer comparison, filing evidence retrieval, watchlists, and assumption-driven valuation scenarios.",
+    architecture: ["Python", "FastAPI", "React", "TypeScript", "Twelve Data", "SEC EDGAR / XBRL", "Docker"],
     decisions: [
-      "Connect the application to live company data instead of freezing the project around a static CSV.",
-      "Use SEC EDGAR as the primary-source filing layer rather than relying only on third-party summaries.",
-      "Keep market-data retrieval, calculations, and filing analysis modular so each layer can be tested and changed independently.",
-      "Prefer transparent calculations and source context over a single opaque 'buy / sell' score.",
+      "Use SEC EDGAR/XBRL as the source of truth for company-reported fundamentals while Twelve Data handles market-price telemetry.",
+      "Normalize annual flow metrics separately from point-in-time balance-sheet facts so valuation ratios do not silently mix incompatible periods.",
+      "Use deterministic filing retrieval to return evidence passages and direct SEC links before adding any optional LLM layer.",
+      "Expose DCF assumptions directly instead of hiding valuation behind an opaque score or recommendation.",
     ],
     tradeoff:
       "Free and low-cost market-data sources vary in coverage, freshness, and rate limits. The application has to surface those boundaries rather than presenting every number as equally authoritative.",
     detail: {
       thesis:
-        "The project started as a Python financial application engine and is evolving toward a more coherent research platform. The goal is not to automate judgment; it is to reduce the mechanical work between raw company data, primary-source filings, and a reasoned comparison.",
+        "FINENGINE turns fragmented public-company research into one traceable workflow: market telemetry, SEC-normalized fundamentals, peer comparison, filing evidence, and transparent valuation scenarios. It is an analytical tool, not a stock-picking engine.",
       build: [
-        "Modular Python application logic for parsing, validation, sanitization, and financial calculations.",
-        "Dynamic conditional workflows for net/gross metrics and operational logic warnings.",
-        "Live company-data integration through Twelve Data.",
-        "SEC EDGAR access as the foundation for primary-source 10-K research.",
-        "Separable analysis modules so additional research tools do not collapse into one monolithic script.",
+        "FastAPI backend for upstream credentials, SEC retrieval, normalization, analytics, caching, filing extraction, and valuation math.",
+        "React/TypeScript interface for company overview, peer comparison, filing search, watchlists, and scenario analysis.",
+        "SEC XBRL normalization for revenue, earnings, cash, debt, equity, cash flow, capex, shares, and derived ratios.",
+        "Filing Lens for deterministic retrieval of evidence from recent 10-K and 10-Q documents.",
+        "Multi-stage Docker deployment that builds the Vite client and serves the SPA and API from one FastAPI origin.",
       ],
-      systemFlow: ["Live market data", "Validated inputs", "Company context", "Financial analysis", "SEC filings", "Research view"],
+      systemFlow: ["Ticker search", "SEC + market data", "Normalization", "Peer / filing analysis", "DCF scenarios", "Research view"],
       next:
-        "The current upgrade path is peer/company comparison, valuation metrics, watchlists, and deeper 10-K analysis so the app becomes a real research workflow instead of a polished market-data viewer.",
+        "The next scaling steps are persistent research workspaces, shared caching and rate limiting, scheduled watchlists, richer peer discovery, and optional citation-locked AI analysis built on top of retrieved filing evidence.",
+    },
+    links: { demo: "https://finengine.onrender.com/" as string | null, repository: null as string | null },
+  },
+  lingora: {
+    slug: "lingora",
+    eyebrow: "04 / Language intelligence",
+    sector: "Learning systems",
+    name: "Lingora",
+    status: "Unvalidated build",
+    year: "2026",
+    role: "Product architecture / full-stack engineering",
+    description: "A short-form language-learning video platform designed around word-synced subtitles, contextual vocabulary, and spaced repetition.",
+    problem:
+      "Video is rich language input, but most viewing experiences separate comprehension from vocabulary capture and later review. Learners end up pausing, translating, saving words elsewhere, and losing the context that made the word memorable.",
+    system:
+      "An architecture for turning uploaded video into adaptive streams, aligned word-level subtitles, contextual vocabulary, and review items. The codebase has not yet been end-to-end deployed or validated, so the portfolio presents it as an unvalidated build rather than a finished product.",
+    architecture: ["Next.js", "FastAPI", "PostgreSQL / pgvector", "RabbitMQ / Celery", "Redis", "FFmpeg", "WhisperX", "Docker"],
+    decisions: [
+      "Separate video ingestion and media processing from the interactive learning experience so expensive work can run asynchronously.",
+      "Use word-level alignment so subtitle interactions can preserve the exact video context around a vocabulary item.",
+      "Keep vocabulary review as a first-class system rather than a disconnected flashcard export.",
+      "Treat the current implementation as unvalidated until the full stack has been run and tested end to end.",
+    ],
+    tradeoff:
+      "The architecture is intentionally ambitious: media processing, alignment, storage, retrieval, and review scheduling create more operational complexity than a simple video-learning prototype. That complexity is only justified if the end-to-end experience proves useful.",
+    detail: {
+      thesis:
+        "Lingora explores a simple idea: the moment a learner understands a word in context should connect directly to the moment that word is reviewed later.",
+      build: [
+        "Next.js product surface for a short-form language-learning video experience.",
+        "FastAPI service boundaries for media, subtitle, vocabulary, and learning workflows.",
+        "Asynchronous processing architecture using RabbitMQ/Celery for media and speech-alignment jobs.",
+        "FFmpeg media processing and WhisperX-oriented word-level alignment pipeline.",
+        "PostgreSQL/pgvector, Redis, and object-storage-oriented architecture for learning and media state.",
+        "Spaced-repetition design intended to turn contextual vocabulary into future review items.",
+      ],
+      systemFlow: ["Video input", "Media processing", "Word alignment", "Contextual vocabulary", "Learning state", "Spaced review"],
+      next:
+        "The immediate milestone is not another feature. It is running and testing the full system end to end, validating the ingestion/alignment pipeline, and proving the learning loop before presenting Lingora as deployed software.",
     },
     links: { demo: null as string | null, repository: null as string | null },
   },
@@ -131,9 +170,10 @@ export type ProjectKey = keyof typeof projects;
 export type FeaturedProject = (typeof projects)[ProjectKey];
 
 export const featuredProjectOrder: ProjectKey[] = ["routeflow", "applyos", "finance"];
+export const projectPageOrder: ProjectKey[] = ["routeflow", "applyos", "finance", "lingora"];
 
 export function getProjectBySlug(slug: string): FeaturedProject | undefined {
-  return featuredProjectOrder
+  return projectPageOrder
     .map((key) => projects[key])
     .find((project) => project.slug === slug);
 }
@@ -143,7 +183,7 @@ export const experiments = [
     name: "IntakeFlow",
     description: "Full-stack project intake gateway from Microsoft 365 Planner approval into centralized API tracking and a live dashboard.",
     stack: "C# / .NET 8 / React / Vite / REST",
-    status: "Deployed demo",
+    status: "Deployed app",
     href: "https://intakeflow-ppm.netlify.app/",
   },
   {
@@ -155,16 +195,30 @@ export const experiments = [
   },
   {
     name: "KOAT",
-    description: "Earlier Vue application organized around Home, Find, and Track flows with client-side routing and a responsive component UI.",
-    stack: "Vue 3 / Vue Router / Bootstrap / MDB Vue",
-    status: "Course project / Repository",
-    href: "https://github.com/E-Train9935/Coding/tree/main/final-project",
+    description: "Connected asset-tracking system combining GPS and Bluetooth capabilities with a Vue web application for locating and monitoring a KOAT device across dedicated Home, Find, and Track experiences.",
+    stack: "GPS / Bluetooth / Vue 3 / Vue Router / Location tracking",
+    status: "Personal project / Repository",
+    href: "https://github.com/E-Train9935/Programs/tree/860d61bd729442bbb5cf66999466dc342cf66b22/KOAT-main/KOAT-main",
+  },
+  {
+    name: "FINITE FEED",
+    description: "Deployed Reddit-intelligence application that retrieves and ranks source posts, then supports citation-grounded deep dives over the retrieved evidence.",
+    stack: "React / TypeScript / Express / Retrieval / LLM",
+    status: "Deployed app",
+    href: "https://finite-feed-web.vercel.app/",
+  },
+  {
+    name: "Lingora",
+    description: "Unvalidated language-learning build connecting short-form video, word-synced subtitles, contextual vocabulary, and spaced repetition.",
+    stack: "Next.js / FastAPI / FFmpeg / WhisperX / Celery",
+    status: "Unvalidated build / Project page",
+    internalHref: "/projects/lingora",
   },
   {
     name: "Carefy",
-    description: "Team academic prototype exploring a simple web experience around symptom and image inputs with machine-learning-assisted pre-diagnosis concepts.",
+    description: "Hackathon team prototype exploring symptom and image inputs with a machine-learning-assisted healthcare pre-diagnosis concept.",
     stack: "Machine learning / Web prototype / Team project",
-    status: "Academic team project",
+    status: "Hackathon project",
     href: "https://github.com/E-Train9935/team214",
   },
 ] as const;

@@ -28,6 +28,32 @@ export function ProjectVisual({ project }: { project: FeaturedProject }) {
     );
   }
 
+  if (project.slug === "lingora") {
+    return (
+      <div className="project-page-visual lingora-visual">
+        <div className="visual-label-row">
+          <span>VIDEO → LANGUAGE CONTEXT</span>
+          <span>UNVALIDATED BUILD</span>
+        </div>
+        <div className="lingora-frame">
+          <div className="lingora-video-field" aria-hidden="true">
+            <span className="lingora-play">▶</span>
+            <div className="lingora-subtitle">
+              <span>我</span><span>想</span><strong>学习</strong><span>新的</span><span>语言</span>
+            </div>
+          </div>
+          <div className="lingora-context-panel">
+            <span className="micro-label">CONTEXT / VOCABULARY</span>
+            <strong>学习 · xuéxí</strong>
+            <p>learn / study</p>
+            <div className="lingora-timeline"><i /><i /><i /><i /><i /></div>
+            <small>WORD ALIGNMENT → REVIEW QUEUE</small>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="project-page-visual finance-project-visual">
       <FinanceChart />

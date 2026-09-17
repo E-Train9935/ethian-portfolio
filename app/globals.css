@@ -2933,3 +2933,215 @@ a {
     grid-column: 2 / -1;
   }
 }
+
+/* v1.5 — profile credibility + Lingora project visual */
+.section-heading-clean {
+  grid-template-columns: minmax(7rem, .38fr) minmax(0, 1.62fr);
+}
+
+.profile-credibility {
+  min-height: 42rem;
+  padding: 1.2rem;
+  background:
+    linear-gradient(rgba(154,231,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154,231,255,.035) 1px, transparent 1px),
+    linear-gradient(160deg, rgba(16,21,25,.84), rgba(4,5,6,.46));
+  background-size: 42px 42px, 42px 42px, auto;
+}
+
+.profile-visual-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--cyan);
+  font: .62rem var(--font-mono);
+  letter-spacing: .11em;
+}
+
+.profile-signal-spine {
+  position: absolute;
+  top: 5.4rem;
+  bottom: 5rem;
+  left: 3.05rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(154,231,255,.7), rgba(154,231,255,.06));
+  box-shadow: 0 0 28px rgba(154,231,255,.12);
+}
+
+.profile-signal-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  margin-top: 4.8rem;
+}
+
+.profile-signal {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1rem 1rem .75rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(90deg, rgba(154,231,255,.045), transparent 70%);
+}
+
+.profile-signal-index {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgba(154,231,255,.34);
+  background: #06090b;
+  color: var(--cyan);
+  font: .68rem var(--font-mono);
+}
+
+.profile-signal small {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--muted);
+  font: .62rem var(--font-mono);
+  letter-spacing: .12em;
+}
+
+.profile-signal strong {
+  display: block;
+  font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+  font-weight: 500;
+}
+
+.profile-signal p {
+  margin: .3rem 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.profile-coordinate {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  color: rgba(255,255,255,.34);
+  font: .58rem var(--font-mono);
+  letter-spacing: .14em;
+}
+
+.lingora-visual {
+  min-height: 31rem;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  background:
+    radial-gradient(circle at 64% 42%, rgba(154,231,255,.08), transparent 26%),
+    linear-gradient(145deg, rgba(12,17,20,.92), rgba(3,5,6,.98));
+}
+
+.lingora-frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(15rem, .55fr);
+  gap: 1px;
+  min-height: 25rem;
+  margin-top: 1.2rem;
+  border: 1px solid var(--hairline);
+  background: var(--hairline);
+}
+
+.lingora-video-field,
+.lingora-context-panel {
+  position: relative;
+  background: #06090b;
+}
+
+.lingora-video-field {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, transparent 0 48%, rgba(154,231,255,.055) 48% 49%, transparent 49%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 58px),
+    #070a0c;
+}
+
+.lingora-play {
+  display: grid;
+  place-items: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border: 1px solid rgba(154,231,255,.35);
+  border-radius: 50%;
+  color: var(--cyan);
+  padding-left: .25rem;
+}
+
+.lingora-subtitle {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 12%;
+  display: flex;
+  justify-content: center;
+  gap: .7rem;
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+}
+
+.lingora-subtitle strong {
+  color: var(--cyan);
+  font-weight: 500;
+  text-shadow: 0 0 24px rgba(154,231,255,.24);
+}
+
+.lingora-context-panel {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lingora-context-panel strong {
+  margin-top: 1rem;
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  font-weight: 500;
+}
+
+.lingora-context-panel p { color: var(--ink-soft); }
+.lingora-context-panel small { color: var(--muted); font: .62rem var(--font-mono); letter-spacing: .1em; }
+.lingora-timeline { display: flex; gap: .4rem; margin: 2rem 0 1rem; }
+.lingora-timeline i { display: block; height: 2px; flex: 1; background: rgba(255,255,255,.1); }
+.lingora-timeline i:nth-child(-n+3) { background: var(--cyan); box-shadow: 0 0 12px rgba(154,231,255,.18); }
+
+@media (max-width: 820px) {
+  .section-heading-clean { grid-template-columns: 1fr; }
+  .profile-visual-header { flex-direction: column; }
+  .profile-signal-spine { left: 3rem; }
+  .lingora-frame { grid-template-columns: 1fr; }
+  .lingora-video-field { min-height: 20rem; }
+}
+
+/* v1.5.2 — rebalance profile columns */
+@media (min-width: 901px) {
+  .profile-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 5vw, 6rem);
+    align-items: start;
+  }
+
+  .profile-copy {
+    padding-top: 1.2rem;
+  }
+
+  .profile-copy .eyebrow {
+    margin-bottom: 1.45rem;
+  }
+
+  .profile-copy h2 {
+    max-width: 15ch;
+    font-size: clamp(3rem, 4.15vw, 4.65rem);
+    line-height: .98;
+    letter-spacing: -0.052em;
+    margin-bottom: 2rem;
+  }
+
+  .profile-copy > p:not(.eyebrow) {
+    max-width: 43rem;
+    font-size: 1rem;
+    line-height: 1.52;
+  }
+}

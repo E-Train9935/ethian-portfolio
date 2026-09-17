@@ -10,8 +10,8 @@ export const siteConfig = {
   statement: "I build systems that turn messy operations into usable software.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? vercelUrl ?? "http://localhost:3000",
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "ethianchiu@gmail.com",
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://www.linkedin.com/in/ethianchiu/",
     github: process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/E-Train9935",
   },
 } as const;

@@ -22,7 +22,7 @@ export function ApplyOSStudy() {
           <details><summary>Technical decisions</summary><ul>{project.decisions.map((item) => <li key={item}>{item}</li>)}</ul></details>
           <div className="tradeoff"><span>Tradeoff</span><p>{project.tradeoff}</p></div>
           <div className="case-links">
-            <Link href={`/projects/${project.slug}`}>Open case study ↗</Link>
+            <Link href={`/projects/${project.slug}`}>Explore project ↗</Link>
             <span>{project.status} / public demo not published yet</span>
           </div>
         </div>

@@ -24,8 +24,8 @@ export function FinanceStudy() {
           <details><summary>Technical decisions</summary><ul>{project.decisions.map((item) => <li key={item}>{item}</li>)}</ul></details>
           <div className="tradeoff"><span>Tradeoff</span><p>{project.tradeoff}</p></div>
           <div className="case-links">
-            <Link href={`/projects/${project.slug}`}>Open case study ↗</Link>
-            <span>{project.status} / public demo not published yet</span>
+            <Link href={`/projects/${project.slug}`}>Explore project ↗</Link>
+            {project.links.demo && <a href={project.links.demo} target="_blank" rel="noreferrer">Launch FINENGINE ↗</a>}
           </div>
         </div>
       </Reveal>

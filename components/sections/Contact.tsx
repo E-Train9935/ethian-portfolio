@@ -13,7 +13,7 @@ export function Contact() {
       <div className="contact-main">
         <h2>Let’s build something useful.</h2>
         <div className="contact-links">
-          {email && <a href={`mailto:${email}`}>Email ↗</a>}
+          {email && <a href={`mailto:${email}?subject=${encodeURIComponent("Portfolio inquiry")}`}>Email ↗</a>}
           {linkedin && <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>}
           {github && <a href={github} target="_blank" rel="noreferrer">GitHub ↗</a>}
           {!hasContact && (
@@ -26,7 +26,7 @@ export function Contact() {
       <div className="contact-footer">
         <span>ETHIAN CHIU</span>
         <span>PRODUCT ENGINEERING / AI / ANALYTICS / SYSTEMS</span>
-        <span>VERTICAL//CITY / v1.4</span>
+        <span>VERTICAL//CITY / v1.5.3</span>
       </div>
     </footer>
   );

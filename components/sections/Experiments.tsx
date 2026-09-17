@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { experiments } from "@/data/portfolio";
 
@@ -13,6 +14,10 @@ export function Experiments() {
       </Reveal>
       <div className="experiment-list">
         {experiments.map((experiment, index) => {
+          const externalHref = "href" in experiment ? experiment.href : undefined;
+          const internalHref = "internalHref" in experiment ? experiment.internalHref : undefined;
+          const hasExternalHref = Boolean(externalHref);
+          const hasInternalHref = Boolean(internalHref);
           const row = (
             <div className="experiment-row">
               <span>{String(index + 1).padStart(2, "0")}</span>
@@ -24,14 +29,18 @@ export function Experiments() {
                 <p>{experiment.description}</p>
                 <span>{experiment.stack}</span>
               </div>
-              <span aria-hidden="true">{experiment.href ? "↗" : "—"}</span>
+              <span aria-hidden="true">{hasExternalHref || hasInternalHref ? "↗" : "—"}</span>
             </div>
           );
 
           return (
             <Reveal key={experiment.name} delay={index * 0.035}>
-              {experiment.href ? (
-                <a href={experiment.href} target="_blank" rel="noreferrer" aria-label={`Open ${experiment.name} project`}>
+              {hasInternalHref ? (
+                <Link href={internalHref!} aria-label={`Explore ${experiment.name} project`}>
+                  {row}
+                </Link>
+              ) : hasExternalHref ? (
+                <a href={externalHref!} target="_blank" rel="noreferrer" aria-label={`Open ${experiment.name} project`}>
                   {row}
                 </a>
               ) : row}

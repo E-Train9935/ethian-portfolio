@@ -38,7 +38,7 @@ An in-progress job-application workflow platform. The current portfolio copy ref
 
 No public demo or repository is shown until one is ready to publish.
 
-#### Financial Analysis Platform — active build
+#### FINENGINE — deployed app
 
 A modular Python financial application currently grounded in:
 
@@ -55,7 +55,7 @@ The archive now contains real smaller projects instead of generic placeholders:
 
 - IntakeFlow — deployed C#/.NET 8 + React project-intake proof of concept
 - RMP Performance Hub — deployed performance-dashboard project
-- KOAT — Vue 3 / Vue Router course project with Home, Find, and Track flows
+- KOAT — personal GPS + Bluetooth asset-tracking project with a Vue web app and Home, Find, and Track flows
 - Carefy — academic team healthcare/ML prototype (presented as a prototype, not a validated medical product)
 
 The archive is intentionally kept small. Future projects should only be added when they strengthen the portfolio rather than simply increasing the project count.
@@ -64,7 +64,7 @@ Public project links included in the archive:
 
 - IntakeFlow: `https://intakeflow-ppm.netlify.app/`
 - RMP Performance Hub: `https://rmp-performance-hub.netlify.app/`
-- KOAT repository: `https://github.com/E-Train9935/Coding/tree/main/final-project`
+- KOAT repository: `https://github.com/E-Train9935/Programs/tree/860d61bd729442bbb5cf66999466dc342cf66b22/KOAT-main/KOAT-main`
 - Carefy team repository: `https://github.com/E-Train9935/team214`
 
 ## Creative direction
@@ -196,7 +196,7 @@ The structure is deployable without these, but the strongest final version shoul
 
 - real RouteFlow screenshots / short screen recording
 - real ApplyOS screenshots once the frontend is stable
-- real Financial Analysis Platform screenshots once the upgraded research workflow is implemented
+- real FINENGINE screenshots and interaction media
 - final public email
 - final LinkedIn URL
 - repository links only for repositories you actually want public

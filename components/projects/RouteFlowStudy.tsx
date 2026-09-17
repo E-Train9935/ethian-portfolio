@@ -51,7 +51,7 @@ function CaseNarrative({ project }: { project: typeof projects.routeflow }) {
       </details>
       <div className="tradeoff"><span>Tradeoff</span><p>{project.tradeoff}</p></div>
       <div className="case-links">
-        <Link href={`/projects/${project.slug}`}>Open case study ↗</Link>
+        <Link href={`/projects/${project.slug}`}>Explore project ↗</Link>
         {project.links.demo && <a href={project.links.demo} target="_blank" rel="noreferrer">Open deployed app / sign-in ↗</a>}
       </div>
     </div>

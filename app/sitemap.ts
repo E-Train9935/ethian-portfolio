@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { featuredProjectOrder, projects } from "@/data/portfolio";
+import { projectPageOrder, projects } from "@/data/portfolio";
 import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projectPages = featuredProjectOrder.map((key) => ({
+  const projectPages = projectPageOrder.map((key) => ({
     url: `${siteConfig.url}/projects/${projects[key].slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

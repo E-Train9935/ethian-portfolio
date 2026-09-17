@@ -12,7 +12,6 @@ export function SiteHeader() {
           that clarify
         </span>
       </Link>
-
       <nav aria-label="Primary navigation">
         <ol className="nav-list">
           {navItems.map((item, index) => (
@@ -25,7 +24,6 @@ export function SiteHeader() {
           ))}
         </ol>
       </nav>
-
       <Link className="header-contact" href="/#contact">
         Product / AI / systems
       </Link>
